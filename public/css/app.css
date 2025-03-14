@@ -1,0 +1,101 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+/* .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+} */
+
+/* Título principal */
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Grid de películas */
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 16px;
+    z-index: 20;
+    width: 80%;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+@media (min-width: 768px) {
+    .movie-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+
+/* Tarjetas de película */
+.movie-card {
+    border-radius: 8px;
+    width: 260px;
+    position: relative;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    border: 1px solid red;
+}
+
+.movie-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.content-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.movie-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+.movie-description {
+    background: #00000091;
+    font-size: 1rem;
+    color: #ffffff;
+    margin-top: 10px;
+    position: absolute;
+    top: -10;
+    padding: 3px;
+    padding-left: 5px;
+}
+
+.movie-link {
+    color: red;
+    text-decoration: none;
+    display: block;
+    font-size: 25px;
+}
+
+.movie-link:hover {
+    text-decoration: underline;
+}
