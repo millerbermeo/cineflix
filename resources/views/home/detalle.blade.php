@@ -2,10 +2,6 @@
 
 @section('content')
 
-<head>
-    <link href="{{ asset('css/detalle.css') }}" rel="stylesheet">
-</head>
-
 <div class="barra-horizontal">
     <h1 class="titulo-movie">Cine Flix</h1>
 </div>

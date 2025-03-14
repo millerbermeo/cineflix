@@ -1,11 +1,11 @@
 <div class="hero">
         <div class="overlay"></div>
         <div class="content-principal">
-        <div class="content">
-            <h1>John Wick 3: <br> Parabellum</h1>
-            <p>John Wick is on the run after killing a member of the international assassins' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.</p>
-            <button>WATCH TRAILER</button>
-        </div>
+            <div class="content">
+                <h1>John Wick 3: <br> Parabellum</h1>
+                <p>John Wick is on the run after killing a member of the international assassins' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.</p>
+                <button>WATCH TRAILER</button>
+            </div>
         </div>
 </div>
 

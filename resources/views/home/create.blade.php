@@ -9,38 +9,38 @@
     </a>
     <h2>Agregar Película</h2>
     <form class="content-form" action="{{ route('pelicula.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
+        @csrf
 
-    <label for="titulo" class="input-label">
-        <input type="text" name="titulo" required placeholder="Título...">
-        <i class="fa-solid fa-heading"></i>
-    </label>
+        <label for="titulo" class="input-label">
+            <input type="text" name="titulo" required placeholder="Título...">
+            <i class="fa-solid fa-heading"></i>
+        </label>
 
-    <label for="descripcion" class="input-label">
-        <textarea name="descripcion" required placeholder="Descripción..."></textarea>
-        <i class="fa-solid fa-file-alt"></i>
-    </label>
+        <label for="descripcion" class="input-label">
+            <textarea name="descripcion" required placeholder="Descripción..."></textarea>
+            <i class="fa-solid fa-file-alt"></i>
+        </label>
 
-    <select name="categoria_id" required>
-        @foreach($categorias as $categoria)
-            <option value="{{ $categoria->id }}" {{ old('categoria_id', $pelicula->categoria_id ?? '') == $categoria->id ? 'selected' : '' }}>
-                {{ $categoria->nombre }}
-            </option>
-        @endforeach
-    </select>
+        <select name="categoria_id" required>
+            @foreach($categorias as $categoria)
+                <option value="{{ $categoria->id }}" {{ old('categoria_id', $pelicula->categoria_id ?? '') == $categoria->id ? 'selected' : '' }}>
+                    {{ $categoria->nombre }}
+                </option>
+            @endforeach
+        </select>
 
-    <label for="imagen" class="input-label">
-        <input type="file" name="imagen" required>
-        <i class="fa-solid fa-file"></i>
-    </label>
+        <label for="imagen" class="input-label">
+            <input type="file" name="imagen" required>
+            <i class="fa-solid fa-file"></i>
+        </label>
 
-    <label for="trailer" class="input-label">
-        <input type="url" name="trailer" placeholder="URL del tráiler (opcional)...">
-        <i class="fa-solid fa-video"></i>
-    </label>
+        <label for="trailer" class="input-label">
+            <input type="url" name="trailer" placeholder="URL del tráiler (opcional)...">
+            <i class="fa-solid fa-video"></i>
+        </label>
 
-    <button type="submit">Guardar</button>
-</form>
+        <button type="submit">Guardar</button>
+    </form>
 </div>
 @endsection
 

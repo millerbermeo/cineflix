@@ -1,6 +1,5 @@
 <nav class="navbar">
     <div class="navbar-container">
-
         <div class="content-logo">
             <img class="img-logo" src="{{ asset('img/logo.png') }}" />
             <a href="{{ url('/') }}" class="navbar-logo">Cine Flix</a>

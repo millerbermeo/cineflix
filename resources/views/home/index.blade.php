@@ -18,12 +18,12 @@
 
         <div class="busqueda">
                 <input type="search" id="buscarPelicula" placeholder="Buscar película" oninput="filtrarPeliculas()">
-            <select>
+            <!-- <select>
                 <option value="">Seleccione género</option>
                 <option value="accion">Acción</option>
                 <option value="comedia">Comedia</option>
                 <option value="drama">Drama</option>
-            </select>
+            </select> -->
         </div>
     </div>
 

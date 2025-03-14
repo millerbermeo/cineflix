@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-<a href="{{ route('peliculas') }}">
+    <a href="{{ route('peliculas') }}">
         <div class="back">
-        <i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-solid fa-arrow-left"></i>
         </div>
     </a>
 
@@ -19,23 +19,23 @@
         </label>
 
         <label for="categoria_id" class="input-label">
-    <select name="categoria_id" required>
-        @foreach($categorias as $categoria)
-            <option value="{{ $categoria->id }}" {{ old('categoria_id', $pelicula->categoria_id ?? '') == $categoria->id ? 'selected' : '' }}>
-                {{ $categoria->nombre }}
-            </option>
-        @endforeach
-    </select>
-</label>
+            <select name="categoria_id" required>
+                @foreach($categorias as $categoria)
+                    <option value="{{ $categoria->id }}" {{ old('categoria_id', $pelicula->categoria_id ?? '') == $categoria->id ? 'selected' : '' }}>
+                        {{ $categoria->nombre }}
+                    </option>
+                @endforeach
+            </select>
+         </label>
 
 
         <label for="descripcion" class="input-label">
             <textarea name="descripcion" id="descripcion" required placeholder="Descripción...">{{ $pelicula->descripcion }}</textarea>
         </label>
 
-        <label for="imagen" class="input-label">
+        <label for="imagen" class="input-label-img">
             <input type="file" name="imagen" id="imagen">
-            <p>Imagen actual: <img src="{{ asset('storage/images/' . $pelicula->imagen) }}" width="100"></p>
+            <p>Imagen actual: <img src="{{ asset('storage/images/' . $pelicula->imagen) }}" width="50"></p>
         </label>
 
         <label for="trailer" class="input-label">
@@ -66,7 +66,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
 
     h2 {
@@ -77,7 +77,7 @@
     .content-form {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
         width: 400px;
         background-color: #3D3D3D;
         padding: 20px;
@@ -90,6 +90,13 @@
         position: relative;
         background: #464646;
         padding: 8px;
+        border-radius: 8px;
+    }
+    .input-label-img {
+        display: flex;
+        align-items: center;
+        position: relative;
+        background: #464646;
         border-radius: 8px;
     }
 
