@@ -58,15 +58,16 @@
     }
 
     .img-fondo-url {
-        position: absolute;
+        position: fixed;
         top:0;
         z-index: -1;
         opacity: 40%;
-        right: 20%
+        right: 0;
     }
 
     .img-fondo-url > img {
-        width: 70%;
+        width: 100%;
+        height: 100vh;
     }
 
     .card {
@@ -129,6 +130,6 @@
     }
 
     .text-success {
-        color: #4caf50;
+        color:rgb(255, 251, 0);
     }
 </style>
