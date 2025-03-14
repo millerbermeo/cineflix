@@ -7,8 +7,12 @@
     <div class="bg-fondo">
         <x-navbar />
         <x-hero />
+
+
     </div>
     <div class="movie-grid">
+    <a href="{{ route('pelicula.create') }}" class="btn-pelicula">Agregar <i class="fas fa-plus"></i></a>
+
         @foreach($peliculas as $pelicula)
             <div class="movie-card">
                 <img src="{{ $pelicula->imagen }}" alt="{{ $pelicula->titulo }}" class="movie-image">
