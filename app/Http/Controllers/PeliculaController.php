@@ -67,7 +67,7 @@ class PeliculaController extends Controller
     {
         $pelicula = Pelicula::findOrFail($id);
         $categorias = Categoria::all();
-    return view('home.edit', compact('pelicula', 'categorias'));
+        return view('home.edit', compact('pelicula', 'categorias'));
     }
 
     // actualiza los datos del registro
