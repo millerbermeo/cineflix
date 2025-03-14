@@ -64,7 +64,7 @@
     .imagen {
         width: 350px;
         height: auto;
-        max-height: 500px;
+        max-height: 300px;
         object-fit: cover;
     }
 
