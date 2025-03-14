@@ -7,15 +7,31 @@
     <div class="bg-fondo">
         <x-navbar />
         <x-hero />
-
-
     </div>
     <div class="movie-grid">
     <a href="{{ route('pelicula.create') }}" class="btn-pelicula">Agregar <i class="fas fa-plus"></i></a>
 
-        @foreach($peliculas as $pelicula)
+    <div class="contenedor-peliculas">
+        <div class="encabezado">
+            <h2>Listado de Películas</h2>
+        </div>
+
+        <div class="busqueda">
+            <input type="search" placeholder="Buscar película">
+            <select>
+                <option value="">Seleccione género</option>
+                <option value="accion">Acción</option>
+                <option value="comedia">Comedia</option>
+                <option value="drama">Drama</option>
+            </select>
+        </div>
+    </div>
+
+        @foreach($peliculas as $pelicula) 
             <div class="movie-card">
-                <img src="{{ $pelicula->imagen }}" alt="{{ $pelicula->titulo }}" class="movie-image">
+                <!-- <img src="{{ $pelicula->imagen }}" alt="{{ $pelicula->titulo }}" > -->
+                <img src="{{ asset('storage/images/' . $pelicula->imagen) }}" class="movie-image" alt="Imagen de {{ $pelicula->titulo }}">
+
                 <p class="movie-description">{{ Str::limit($pelicula->descripcion, 50) }}</p>
                 <div class="content-info">
                     <h2 class="movie-title">{{ $pelicula->titulo }}</h2>

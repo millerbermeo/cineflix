@@ -2,30 +2,27 @@
 
 @section('content')
 <div class="container">
-    <form class="content-form" action="{{ route('pelicula.update', $pelicula->id) }}" method="POST">
+    <form class="content-form" action="{{ route('pelicula.update', $pelicula->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
-        <h2>Actualizar Pelicula</h2>
+        <h2>Actualizar Película</h2>
 
         <label for="titulo" class="input-label">
             <input type="text" name="titulo" id="titulo" value="{{ $pelicula->titulo }}" required placeholder="Título...">
-            <i class="fa fa-search search-icon"></i>
         </label>
 
         <label for="descripcion" class="input-label">
             <textarea name="descripcion" id="descripcion" required placeholder="Descripción...">{{ $pelicula->descripcion }}</textarea>
-            <i class="fa fa-search search-icon"></i>
         </label>
 
         <label for="imagen" class="input-label">
-            <input type="url" name="imagen" id="imagen" value="{{ $pelicula->imagen }}" required placeholder="URL de la imagen...">
-            <i class="fa fa-search search-icon"></i>
+            <input type="file" name="imagen" id="imagen">
+            <p>Imagen actual: <img src="{{ asset('storage/images/' . $pelicula->imagen) }}" width="100"></p>
         </label>
 
         <label for="trailer" class="input-label">
             <input type="url" name="trailer" id="trailer" value="{{ $pelicula->trailer }}" placeholder="URL del tráiler...">
-            <i class="fa fa-search search-icon"></i>
         </label>
 
         <button type="submit">Actualizar</button>

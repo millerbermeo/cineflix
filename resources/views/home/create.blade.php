@@ -3,31 +3,31 @@
 @section('content')
 <div class="container">
     <h1>Agregar Película</h1>
-    <form class="content-form" action="{{ route('pelicula.store') }}" method="POST">
-        @csrf
+    <form class="content-form" action="{{ route('pelicula.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
 
-        <label for="titulo" class="input-label">
-            <input type="text" name="titulo" required placeholder="Título...">
-            <i class="fa fa-search search-icon"></i>
-        </label>
+    <label for="titulo" class="input-label">
+        <input type="text" name="titulo" required placeholder="Título...">
+        <i class="fa fa-search search-icon"></i>
+    </label>
 
-        <label for="descripcion" class="input-label">
-            <textarea name="descripcion" required placeholder="Descripción..."></textarea>
-            <i class="fa fa-search search-icon"></i>
-        </label>
+    <label for="descripcion" class="input-label">
+        <textarea name="descripcion" required placeholder="Descripción..."></textarea>
+        <i class="fa fa-search search-icon"></i>
+    </label>
 
-        <label for="imagen" class="input-label">
-            <input type="url" name="imagen" required placeholder="URL de la imagen...">
-            <i class="fa fa-search search-icon"></i>
-        </label>
+    <label for="imagen" class="input-label">
+        <input type="file" name="imagen" required>
+        <i class="fa fa-search search-icon"></i>
+    </label>
 
-        <label for="trailer" class="input-label">
-            <input type="url" name="trailer" placeholder="URL del tráiler (opcional)...">
-            <i class="fa fa-search search-icon"></i>
-        </label>
+    <label for="trailer" class="input-label">
+        <input type="url" name="trailer" placeholder="URL del tráiler (opcional)...">
+        <i class="fa fa-search search-icon"></i>
+    </label>
 
-        <button type="submit">Guardar</button>
-    </form>
+    <button type="submit">Guardar</button>
+</form>
 </div>
 @endsection
 

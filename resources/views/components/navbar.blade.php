@@ -9,9 +9,8 @@
         <!-- Links de Navegación -->
         <ul class="navbar-links">
             <li><a href="{{ url('/') }}">Inicio</a></li>
-            <li><a href="{{ url('/about') }}">Acerca de</a></li>
-            <li><a href="{{ url('/services') }}">Servicios</a></li>
-            <li><a href="{{ url('/contact') }}">Contacto</a></li>
+            <li><a href="{{ url('/') }}">Acerca de</a></li>
+            <li><a href="{{ url('/') }}">Servicios</a></li>
         </ul>
 
         <!-- Login / Logout -->
@@ -38,11 +37,10 @@
     background-color: rgba(0, 0, 0, 0.33);
     color: #fff;
     padding: 10px 0;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
-    position: fixed;
+    z-index: 7;
 }
 
 .navbar-container {

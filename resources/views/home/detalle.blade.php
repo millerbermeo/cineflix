@@ -11,7 +11,7 @@
 </div>
     <div class="content">
         <div class="content-info">
-        <img src="{{ $pelicula->imagen }}" alt="{{ $pelicula->titulo }}" class="imagen">
+        <img src="{{ asset('storage/images/' . $pelicula->imagen) }}" alt="{{ $pelicula->titulo }}" class="imagen">
         <h1 class="titulo">{{ $pelicula->titulo }}</h1>
         <p class="descripcion">{{ $pelicula->descripcion }}</p>
         </div>
