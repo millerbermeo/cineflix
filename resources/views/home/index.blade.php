@@ -17,7 +17,7 @@
         </div>
 
         <div class="busqueda">
-            <input type="search" placeholder="Buscar película">
+                <input type="search" id="buscarPelicula" placeholder="Buscar película" oninput="filtrarPeliculas()">
             <select>
                 <option value="">Seleccione género</option>
                 <option value="accion">Acción</option>
@@ -27,32 +27,33 @@
         </div>
     </div>
 
-        @foreach($peliculas as $pelicula) 
-            <div class="movie-card">
-                <!-- <img src="{{ $pelicula->imagen }}" alt="{{ $pelicula->titulo }}" > -->
-                <img src="{{ asset('storage/images/' . $pelicula->imagen) }}" class="movie-image" alt="Imagen de {{ $pelicula->titulo }}">
+    <div id="movie-list">
+            @foreach($peliculas as $pelicula) 
+                <div class="movie-card" data-title="{{ $pelicula->titulo }}">
+                    <img src="{{ asset('storage/images/' . $pelicula->imagen) }}" class="movie-image" alt="Imagen de {{ $pelicula->titulo }}">
 
-                <p class="movie-description">{{ Str::limit($pelicula->descripcion, 50) }}</p>
-                <div class="content-info">
-                    <h2 class="movie-title">{{ $pelicula->titulo }}</h2>
-                    <a href="{{ route('pelicula.detalle', $pelicula->id) }}" class="movie-link">
-                        <i class="fas fa-eye"></i>
-                    </a>
+                    <p class="movie-description">{{ Str::limit($pelicula->descripcion, 50) }}</p>
+                    <div class="content-info">
+                        <h2 class="movie-title">{{ $pelicula->titulo }}</h2>
+                        <a href="{{ route('pelicula.detalle', $pelicula->id) }}" class="movie-link">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                    </div>
+                    <div class="content-acciones">
+                        <a class="btn-edit" href="{{ route('pelicula.edit', $pelicula->id) }}">
+                            Editar <i class="fas fa-edit"></i>
+                        </a>
+                        <form action="{{ route('pelicula.destroy', $pelicula->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" onclick="return confirm('¿Seguro que deseas eliminar esta película?')">
+                                Eliminar
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="content-acciones">
-                    <a class="btn-edit" href="{{ route('pelicula.edit', $pelicula->id) }}">
-                        Editar <i class="fas fa-edit"></i>
-                    </a>
-                    <form action="{{ route('pelicula.destroy', $pelicula->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" onclick="return confirm('¿Seguro que deseas eliminar esta película?')">
-                            Eliminar
-                        </button>
-                    </form>
-                </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 </div>
 @endsection

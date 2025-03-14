@@ -50,6 +50,8 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
+    background-color: transparent;
+    color: red;
 }
 
 .busqueda select {
@@ -57,6 +59,8 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
+    background-color: transparent;
+    color: red;
 }
 
 .btn-pelicula {
@@ -114,7 +118,6 @@ body {
 }
 
 
-
 /* Card Pelicula */
 .movie-card {
     border-radius: 8px;
@@ -126,6 +129,7 @@ body {
 
 .movie-card:hover {
     border: 1px solid red;
+    background-color: #e50a1117;
 }
 
 .movie-image {
@@ -179,9 +183,19 @@ body {
     gap: 10px;
     padding-left: 5px;
     padding-right: 5px;
-    align-items: end;
+    align-items: center;
 }
 
 .btn-edit {
     color: white;
+}
+
+
+#movie-list {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
