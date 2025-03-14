@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+<head>
+    <link href="{{ asset('css/detalle.css') }}" rel="stylesheet">
+</head>
+
 <div class="barra-horizontal">
     <h1 class="titulo-movie">Cine Flix</h1>
 </div>
@@ -57,7 +62,7 @@
 
     /* Imagen de la película */
     .imagen {
-        width: 450px;
+        width: 350px;
         height: auto;
         max-height: 500px;
         object-fit: cover;
@@ -92,7 +97,7 @@
     /* Estilo para los iframes de video */
     iframe {
         width: 600px;
-        height: 520px;
+        height: 450px;
         border: none;
     }
 </style>

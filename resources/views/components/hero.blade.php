@@ -7,14 +7,14 @@
             <button>WATCH TRAILER</button>
         </div>
         </div>
-    </div>
+</div>
 
 
 <style>
     .hero {
     position: relative;
     width: 100%;
-    height: 60vh;
+    height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
