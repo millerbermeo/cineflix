@@ -68,4 +68,18 @@ button {
 button:hover {
     background: darkred;
 }
+
+@media screen and (max-width: 768px) {
+    h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font
+}
+}
+
 </style>

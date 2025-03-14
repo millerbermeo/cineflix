@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+<a href="{{ route('peliculas') }}">
+        <div class="back">
+        <i class="fa-solid fa-arrow-left"></i>
+        </div>
+    </a>
+
     <form class="content-form" action="{{ route('pelicula.update', $pelicula->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -11,6 +17,17 @@
         <label for="titulo" class="input-label">
             <input type="text" name="titulo" id="titulo" value="{{ $pelicula->titulo }}" required placeholder="Título...">
         </label>
+
+        <label for="categoria_id" class="input-label">
+    <select name="categoria_id" required>
+        @foreach($categorias as $categoria)
+            <option value="{{ $categoria->id }}" {{ old('categoria_id', $pelicula->categoria_id ?? '') == $categoria->id ? 'selected' : '' }}>
+                {{ $categoria->nombre }}
+            </option>
+        @endforeach
+    </select>
+</label>
+
 
         <label for="descripcion" class="input-label">
             <textarea name="descripcion" id="descripcion" required placeholder="Descripción...">{{ $pelicula->descripcion }}</textarea>
@@ -37,6 +54,19 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        flex-direction: column;
+    }
+
+    .back {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
     }
 
     h2 {
@@ -44,7 +74,6 @@
         text-align: center;
     }
 
-    /* Formulario */
     .content-form {
         display: flex;
         flex-direction: column;
@@ -55,7 +84,6 @@
         border-radius: 12px;
     }
 
-    /* Estilos de las etiquetas de entrada */
     .input-label {
         display: flex;
         align-items: center;
@@ -92,7 +120,6 @@
         right: 10px;
     }
 
-    /* Botón de submit */
     button {
         background-color:rgb(255, 0, 0);
         color: #fff;

@@ -2,28 +2,41 @@
 
 @section('content')
 <div class="container">
-    <h1>Agregar Película</h1>
+    <a href="{{ route('peliculas') }}">
+        <div class="back">
+        <i class="fa-solid fa-arrow-left"></i>
+        </div>
+    </a>
+    <h2>Agregar Película</h2>
     <form class="content-form" action="{{ route('pelicula.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <label for="titulo" class="input-label">
         <input type="text" name="titulo" required placeholder="Título...">
-        <i class="fa fa-search search-icon"></i>
+        <i class="fa-solid fa-heading"></i>
     </label>
 
     <label for="descripcion" class="input-label">
         <textarea name="descripcion" required placeholder="Descripción..."></textarea>
-        <i class="fa fa-search search-icon"></i>
+        <i class="fa-solid fa-file-alt"></i>
     </label>
+
+    <select name="categoria_id" required>
+        @foreach($categorias as $categoria)
+            <option value="{{ $categoria->id }}" {{ old('categoria_id', $pelicula->categoria_id ?? '') == $categoria->id ? 'selected' : '' }}>
+                {{ $categoria->nombre }}
+            </option>
+        @endforeach
+    </select>
 
     <label for="imagen" class="input-label">
         <input type="file" name="imagen" required>
-        <i class="fa fa-search search-icon"></i>
+        <i class="fa-solid fa-file"></i>
     </label>
 
     <label for="trailer" class="input-label">
         <input type="url" name="trailer" placeholder="URL del tráiler (opcional)...">
-        <i class="fa fa-search search-icon"></i>
+        <i class="fa-solid fa-video"></i>
     </label>
 
     <button type="submit">Guardar</button>
@@ -40,14 +53,25 @@
         align-items: center;
         height: 100vh;
         padding: 20px;
+        position: relative;
     }
 
-    h1 {
+    .back {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h2 {
         color: white;
         margin-bottom: 20px;
     }
 
-    /* Formulario */
     .content-form {
         display: flex;
         flex-direction: column;
@@ -58,7 +82,6 @@
         border-radius: 12px;
     }
 
-    /* Estilos de las etiquetas de entrada */
     .input-label {
         display: flex;
         align-items: center;
@@ -95,7 +118,6 @@
         right: 10px;
     }
 
-    /* Botón de submit */
     button {
         background-color: rgb(255, 0, 0);
         color: #fff;

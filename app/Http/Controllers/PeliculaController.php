@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pelicula;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -10,9 +11,9 @@ use Illuminate\Support\Facades\Storage;
 class PeliculaController extends Controller
 {
     public function __construct()
-{
-    $this->middleware('auth');
-}
+    {
+        $this->middleware('auth');
+    }
 
     // retorna la vista de peliculas mas la data
     public function index()
@@ -31,7 +32,9 @@ class PeliculaController extends Controller
 
     public function create()
     {
-        return view('home.create');
+        $categorias = Categoria::all();  // Obtén todas las categorías
+        return view('home.create', compact('categorias'));
+    
     }
 
     // Guardar el nuevo registro en bd
@@ -41,7 +44,8 @@ class PeliculaController extends Controller
             'titulo' => 'required|string|max:255',
             'descripcion' => 'required|string',
             'imagen' => 'required|image|mimes:jpg,jpeg,png|max:2048', // Validación de imagen
-            'trailer' => 'nullable|url'
+            'trailer' => 'nullable|url',
+            'categoria_id' => 'exists:categorias,id',
         ]);
 
         // Guardar la imagen
@@ -53,6 +57,7 @@ class PeliculaController extends Controller
             'descripcion' => $request->descripcion,
             'imagen' => $nombreImagen,
             'trailer' => $request->trailer,
+            'categoria_id' => $request->categoria_id,
         ]);
 
         return redirect()->route('home')->with('success', 'Película agregada con éxito.');
@@ -61,7 +66,8 @@ class PeliculaController extends Controller
     public function edit($id)
     {
         $pelicula = Pelicula::findOrFail($id);
-        return view('home.edit', compact('pelicula'));
+        $categorias = Categoria::all();
+    return view('home.edit', compact('pelicula', 'categorias'));
     }
 
     // actualiza los datos del registro
@@ -71,7 +77,8 @@ class PeliculaController extends Controller
             'titulo' => 'required|string|max:255',
             'descripcion' => 'required|string',
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validación de imagen
-            'trailer' => 'nullable|url'
+            'trailer' => 'nullable|url',
+            'categoria_id' => 'exists:categorias,id', 
         ]);
     
         $pelicula = Pelicula::findOrFail($id);
@@ -93,6 +100,7 @@ class PeliculaController extends Controller
         $pelicula->titulo = $request->titulo;
         $pelicula->descripcion = $request->descripcion;
         $pelicula->trailer = $request->trailer;
+        $pelicula->categoria_id = $request->categoria_id;
         $pelicula->save();
     
         return redirect()->route('home')->with('success', 'Película actualizada correctamente.');

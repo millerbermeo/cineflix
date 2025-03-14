@@ -1,19 +1,17 @@
 <nav class="navbar">
     <div class="navbar-container">
-        <!-- Logo y Nombre -->
+
         <div class="content-logo">
             <img class="img-logo" src="{{ asset('img/logo.png') }}" />
             <a href="{{ url('/') }}" class="navbar-logo">Cine Flix</a>
         </div>
 
-        <!-- Links de Navegación -->
         <ul class="navbar-links">
             <li><a href="{{ url('/') }}">Inicio</a></li>
             <li><a href="{{ url('/') }}">Acerca de</a></li>
             <li><a href="{{ url('/') }}">Servicios</a></li>
         </ul>
-
-        <!-- Login / Logout -->
+     
         <div class="auth-buttons">
             @if(Auth::check())
                 <a href="{{ route('logout') }}" 
@@ -32,7 +30,7 @@
 </nav>
 
 <style>
-/* Estilos del Navbar */
+
 .navbar {
     background-color: rgba(0, 0, 0, 0.33);
     color: #fff;
@@ -71,7 +69,7 @@
     text-decoration: none;
 }
 
-/* Links de navegación */
+
 .navbar-links {
     list-style: none;
     display: flex;
@@ -93,7 +91,7 @@
     color: #ddd;
 }
 
-/* Botón de Login/Logout */
+
 .auth-buttons {
     margin-left: 20px;
 }
@@ -113,7 +111,7 @@
     color: #ddd;
 }
 
-/* Estilos para dispositivos móviles */
+/* dispositivos moviles */
 @media screen and (max-width: 768px) {
     .navbar-links {
         display: none;
