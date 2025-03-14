@@ -52,7 +52,7 @@
   
 
     .login-form {
-        padding-top: 100px;
+        padding-top: 80px;
         width: 700px;
         margin: auto
     }
@@ -66,7 +66,7 @@
     }
 
     .img-fondo-url > img {
-        width: 90%;
+        width: 70%;
     }
 
     .card {
