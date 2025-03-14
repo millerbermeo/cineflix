@@ -32,7 +32,7 @@
         width: 80%;
         margin: 0 auto;
         display: flex;
-        padding: 100px;
+        padding: 45px;
         gap: 50px
     }
 
@@ -40,7 +40,7 @@
         position: fixed;
         background-color: #E50914;
         width: 100%;
-        height: 190px;
+        height: 130px;
         z-index: -1;
         top: 0
     }
