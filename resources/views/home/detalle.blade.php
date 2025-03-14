@@ -57,7 +57,7 @@
 
     /* Imagen de la película */
     .imagen {
-        width: 100%;
+        width: 450px;
         height: auto;
         max-height: 500px;
         object-fit: cover;
@@ -68,12 +68,12 @@
         font-size: 3rem;
         font-weight: bold;
         margin-top: 1rem;
-        color:rgb(255, 0, 0); /* Gris claro */
+        color: white; /* Gris claro */
     }
 
     /* Descripción de la película */
     .descripcion {
-        color: #e5e7eb; /* Gris claro */
+        color:rgb(235, 229, 229); /* Gris claro */
         margin-top: 0.5rem;
     }
 
@@ -91,7 +91,7 @@
 
     /* Estilo para los iframes de video */
     iframe {
-        width: 800px;
+        width: 600px;
         height: 520px;
         border: none;
     }

@@ -7,8 +7,6 @@
 <x-navbar />
 <x-hero />
     </div>
-
-
     <div class="movie-grid">
         @foreach($peliculas as $pelicula)
             <div class="movie-card">
@@ -19,23 +17,16 @@
                 <a href="{{ route('pelicula.detalle', $pelicula->id) }}" class="movie-link"><i class="fas fa-eye"></i>
                 </a>
                 </div>
+                <div class="content-acciones">
+                <a class="btn-edit" href="{{ route('pelicula.edit', $pelicula->id) }}">Editar <i class="fas fa-edit"></i></a>
+        <form action="{{ route('pelicula.destroy', $pelicula->id) }}" method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" onclick="return confirm('¿Seguro que deseas eliminar esta película?')">Eliminar</button>
+        </form>
+                </div>
             </div>
         @endforeach
     </div>
 </div>
 @endsection
-
-
-
-<style>
-.bg-fondo {
-    background-image: url('{{ asset('img/fondo.jpg') }}');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 80vh;
-
-    z-index: -1
-}
-</style>

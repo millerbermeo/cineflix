@@ -7,11 +7,17 @@ body {
 }
 
 /* Contenedor principal */
-/* .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-} */
+
+.bg-fondo {
+    background-image: url('/img/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 60vh;
+    z-index: -1
+}
+
 
 /* Título principal */
 .title {
@@ -84,7 +90,8 @@ body {
     color: #ffffff;
     margin-top: 10px;
     position: absolute;
-    top: -10;
+    top: 0;
+    transform: translateY(-10px);
     padding: 3px;
     padding-left: 5px;
 }
@@ -98,4 +105,16 @@ body {
 
 .movie-link:hover {
     text-decoration: underline;
+}
+
+.content-acciones {
+    display: flex;
+    gap: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: end;
+}
+
+.btn-edit {
+    color: white;
 }

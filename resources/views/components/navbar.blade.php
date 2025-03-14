@@ -51,7 +51,7 @@
 .navbar-logo {
     font-size: 24px;
     font-weight: bold;
-    color: #fff;
+    color: red;
     text-decoration: none;
 }
 
