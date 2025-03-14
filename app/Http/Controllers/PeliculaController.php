@@ -7,11 +7,18 @@ use Illuminate\Http\Request;
 
 class PeliculaController extends Controller
 {
-    public function index()
-    {
-        $peliculas = Pelicula::all();
-        return view('home.index', compact('peliculas'));
-    }
+    public function __construct()
+{
+    $this->middleware('auth');
+}
+
+
+public function index()
+{
+    $peliculas = Pelicula::all();
+    return view('home.index', compact('peliculas')); // Asegúrate de que 'home.index' es el nombre correcto de la vista
+}
+
 
     public function show($id)
     {
