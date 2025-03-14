@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Pelicula;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class PeliculaController extends Controller
 {
